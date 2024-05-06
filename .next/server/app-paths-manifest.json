@@ -1,0 +1,8 @@
+{
+  "/page": "app/page.js",
+  "/about/page": "app/about/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/work/[slug]/page": "app/work/[slug]/page.js",
+  "/work/(index)/page": "app/work/(index)/page.js",
+  "/blog/(index)/page": "app/blog/(index)/page.js"
+}
