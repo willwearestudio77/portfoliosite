@@ -1,9 +1,9 @@
 import Image from 'next/image'
-
+import Link from 'next/link'
 import { Container } from './Container'
 import image from '@/images/experience-image.jpg'
 
-export function Experience() {
+export function Experience({data}) {
   return (
     <section className="relative pt-20 pb-40 overflow-hidden bg-gradient-to-b from-slate-50 via-slate-50 to-white sm:pt-24 lg:pb-64 lg:pt-32">
       <Container>
@@ -375,9 +375,11 @@ export function Experience() {
                       fill="currentColor"
                     />
                   </svg>
+                  <Link href={data} alt="link to my latest cv">
                   <button
                     className="relative inline-flex items-center justify-center w-12 h-12 duration-200 -translate-x-1/2 -translate-y-1/2 rounded-full left-1/2 top-1/2 bg-slate-900 hover:bg-slate-800 lg:h-20 lg:w-20"
                     aria-label="Download resume"
+                    href={data}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -408,14 +410,15 @@ export function Experience() {
                       </g>
                     </svg>
                   </button>
+                  </Link>
                 </div>
                 <dl className="absolute bottom-0 grid grid-cols-2 gap-5 px-6 py-8 text-center translate-x-1/2 right-1/2 w-max translate-y-3/4 rounded-2xl bg-sky-700/90 backdrop-blur-sm sm:translate-y-1/2 sm:gap-12 sm:p-10 lg:right-20 lg:translate-x-0">
                   <div className="flex flex-col gap-1">
                     <dt className="text-sm font-semibold leading-6 text-sky-50">
-                      Years of experience
+                    Years of experience
                     </dt>
                     <dd className="order-first text-3xl font-extrabold text-white sm:text-4xl">
-                      10
+                      4
                     </dd>
                   </div>
 
@@ -424,7 +427,7 @@ export function Experience() {
                       Projects completed
                     </dt>
                     <dd className="order-first text-3xl font-extrabold text-white sm:text-4xl">
-                      150
+                      30
                     </dd>
                   </div>
                 </dl>

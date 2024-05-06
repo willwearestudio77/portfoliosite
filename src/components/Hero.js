@@ -3,12 +3,16 @@ import Image from 'next/image'
 
 import { Button } from './Button'
 import { Container } from './Container'
-import { DribbbleIcon, InstagramIcon, TwitterIcon } from './SocialIcons'
+import { LinkedInIcon, GitHubIcon, TwitterIcon } from './SocialIcons'
 import heroPortrait from '@/images/hero-portrait.jpg'
 import heroBG from '@/images/home-hero-gradient.svg'
 import figma from '@/images/logos/icons/figma.png'
 import tailwind from '@/images/logos/icons/tailwindcss.png'
 import sketch from '@/images/logos/icons/sketch.png'
+import javascript from '@/images/logos/icons/javascript.png'
+import shopify from '@/images/logos/icons/shopify.png'
+import nextjs from '@/images/logos/icons/nextjs.png'
+import { GithubIcon } from 'next-share'
 
 function SocialLink({ icon: Icon, ...props }) {
   return (
@@ -21,11 +25,11 @@ function SocialLink({ icon: Icon, ...props }) {
   )
 }
 
-export function Hero() {
+export function Hero({data}) {
+  const image = data.page.data.attributes.hero_image.data[0].attributes.url
   return (
     <section className="relative py-20 overflow-hidden lg:py-24">
-      {/* Light blue gradient background */}
-      <Image src={heroBG} alt="" className="absolute inset-x-0 w-auto top-56 lg:inset-y-0" />
+      
 
       <Container className="relative z-10 grid items-center gap-16 lg:grid-cols-2 lg:gap-8">
         <div className="flex flex-col items-center max-w-2xl mx-auto lg:items-start">
@@ -52,26 +56,21 @@ export function Hero() {
             businesses.
           </p>
           <div className="flex flex-wrap items-center justify-center mt-10 gap-x-10 gap-y-6 lg:justify-start">
-            <Button href="#" className="h-11">
+            <Button href="https://calendly.com/will-glo" className="h-11">
               Book a call with me
             </Button>
 
             <div className="flex gap-3 sm:gap-4">
               <SocialLink
-                href="https://dribbble.com"
-                aria-label="Follow on Dribbble"
-                icon={DribbbleIcon}
+                href="https://www.linkedin.com/in/william-ellis-a7b937228/"
+                aria-label="Follow on LinkedIn"
+                icon={LinkedInIcon}
               />
 
               <SocialLink
-                href="https://instagram.com"
-                aria-label="Follow on Instagram"
-                icon={InstagramIcon}
-              />
-              <SocialLink
-                href="https://twitter.com"
-                aria-label="Follow on Twitter"
-                icon={TwitterIcon}
+                href="https://github.com/willwearestudio77"
+                aria-label="Follow on Github"
+                icon={GitHubIcon}
               />
             </div>
           </div>
@@ -80,7 +79,7 @@ export function Hero() {
           <div className="relative aspect-h-5 aspect-w-4 rounded-2xl bg-slate-50">
             <Image
               className="object-cover object-center w-full h-full rounded-2xl"
-              src={heroPortrait}
+              src={image}
               alt=""
               sizes="(min-width: 552px) 32rem, calc(100vw - 2.5rem)"
               fill
@@ -89,7 +88,7 @@ export function Hero() {
             <div>
               <div className="absolute hidden w-max md:left-full md:top-16 md:block lg:-left-28 lg:-top-8 2xl:left-full 2xl:top-16 ">
                 <span className="inline-block transform font-writing text-2xl tracking-wide text-slate-600 md:rotate-[16deg] lg:translate-x-6 lg:rotate-[-18deg] 2xl:rotate-12">
-                  Hi, I'm Jane!
+                  Hi, I'm Will!
                 </span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -110,16 +109,16 @@ export function Hero() {
                 </svg>
               </div>
               <div className="absolute -top-6 right-12 inline-flex h-12 w-max items-center justify-center gap-3.5 rounded-2xl bg-white/90 px-8 text-sm font-semibold text-slate-700 shadow-lg shadow-sky-100/50 ring-1 ring-slate-900/5 backdrop-blur-md md:-left-28 md:top-14 lg:-top-6 lg:left-44 lg:px-10 2xl:-left-48 2xl:top-14">
-                <Image src={figma} alt="" className="w-4 h-auto" priority />4
-                years of experience
+                <Image src={shopify} alt="" className="w-4 h-auto" priority />3
+               years of experience
               </div>
               <div className="absolute left-12 top-full inline-flex h-12 w-max -translate-y-6 items-center justify-center gap-3.5 rounded-2xl bg-white/90 px-8 text-sm font-semibold text-slate-700 shadow-lg shadow-sky-100/50 ring-1 ring-slate-900/5 backdrop-blur-md md:left-0 md:-translate-x-20 md:-translate-y-24 lg:-left-3 lg:-translate-y-24 lg:px-10 xl:-left-6 xl:-translate-x-28 xl:-translate-y-32">
-                <Image src={sketch} alt="" className="w-auto h-6" priority />5
+                <Image src={javascript} alt="" className="w-auto h-6" priority />3
                 years of experience
               </div>
               <div className="absolute top-[350px] hidden h-12 w-max items-center justify-center gap-3.5 rounded-2xl bg-white/90 px-8 text-sm font-semibold text-slate-700 shadow-lg shadow-sky-100/50 ring-1 ring-slate-900/5 backdrop-blur-md md:left-full md:inline-flex md:-translate-x-32 lg:left-48 lg:hidden lg:px-10 2xl:left-full 2xl:inline-flex 2xl:-translate-x-28">
-                <Image src={tailwind} alt="" className="h-auto w-7" priority />
-                <span className="">3 years of experience</span>
+                <Image src={nextjs} alt="" className="h-auto w-7" priority />
+                <span className="">1 years of experience</span>
               </div>
             </div>
           </div>

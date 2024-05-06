@@ -264,7 +264,7 @@ export function Header() {
             </Menu>
           </div>
           <div className="flex items-center">
-            <Button variant="secondary" href="#">
+            <Button variant="secondary" href="https://calendly.com/will-glo">
               Book a call
             </Button>
             <div className="ml-4 md:hidden">

@@ -22,9 +22,9 @@ const gochiHand = Gochi_Hand({
 
 export const metadata = {
   title: {
-    template: '%s - Jane Doe',
+    template: '%s - William Ellis',
     default:
-      'Jane - Developer, entrepreneur, and general technology enthusiast',
+      'William Ellis - Developer, entrepreneur, and general technology enthusiast',
   },
 }
 

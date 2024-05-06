@@ -1,7 +1,10 @@
 import Image from 'next/image'
 import clsx from 'clsx'
-
+import squarespace from '@//images/logos/icons/squarespace.png'
+import graphql from '@//images/logos/icons/graphql.png'
+import nodejs from '@//images/logos/icons/nodejs.png'
 import rails from '@//images/logos/icons/rails.png'
+import liquid from '@//images/logos/icons/liquid.png'
 import javascript from '@//images/logos/icons/javascript.png'
 import html5 from '@/images/logos/icons/html5.png'
 import css from '@/images/logos/icons/css.png'
@@ -11,7 +14,9 @@ import postgresql from '@//images/logos/icons/postgresql.png'
 import tailwind from '@//images/logos/icons/tailwindcss.png'
 import ruby from '@//images/logos/icons/ruby.png'
 import figma from '@/images/logos/icons/figma.png'
+import nextjs from '@//images/logos/icons/nextjs.png'
 import sketch from '@/images/logos/icons/sketch.png'
+import vercel from '@/images/logos/icons/vercel.png'
 import c from '@/images/logos/icons/c.png'
 import firebase from '@/images/logos/icons/firebase.png'
 
@@ -37,20 +42,20 @@ const icons = [
     icon: figma,
   },
   {
-    name: 'Sketch',
-    icon: sketch,
+    name: 'Vercel',
+    icon: vercel,
   },
   {
-    name: 'Rails',
-    icon: rails,
+    name: 'Liquid',
+    icon: liquid,
   },
   {
-    name: 'Netlify',
-    icon: netlify,
+    name: 'NextJs',
+    icon: nextjs,
   },
   {
-    name: 'Python',
-    icon: python,
+    name: 'NodeJs',
+    icon: nodejs,
   },
   {
     name: 'Postgresql',
@@ -61,12 +66,12 @@ const icons = [
     icon: firebase,
   },
   {
-    name: 'C programming language',
-    icon: c,
+    name: 'GraphQL',
+    icon: graphql,
   },
   {
-    name: 'Ruby language',
-    icon: ruby,
+    name: 'Squarespace',
+    icon: squarespace,
   },
 ]
 
