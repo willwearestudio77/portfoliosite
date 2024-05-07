@@ -26,32 +26,32 @@ function CategoryIcon({ category, ...props }) {
 }
 
 function CaseStudy({ caseStudy }) {
+  console.log(caseStudy)
+  console.log(caseStudy.cover_photo.data.attributes.url)
   return (
+
+   <>
     <div
-      key={caseStudy.title}
+      key={caseStudy.Title}
       className="relative grid items-center gap-8 overflow-hidden rounded-2xl bg-slate-50 px-4 pb-14 pt-5 shadow-sm shadow-sky-100/50 ring-1 ring-slate-100 sm:gap-12 sm:px-8 sm:pt-8 lg:grid-cols-12 lg:px-0 lg:py-0 xl:gap-16 xl:pt-16"
     >
-      <Image
-        src={workBG}
-        alt=""
-        className="absolute inset-x-0 bottom-0 h-auto w-full lg:top-6 lg:h-full"
-      />
+      
       <div className="relative order-2 px-1 sm:px-4 lg:order-1 lg:col-span-6 lg:pb-16 lg:pl-12 lg:pt-16 xl:col-span-5 xl:pb-24 xl:pl-16 xl:pt-8">
         <div className="inline-flex items-center gap-2.5  text-sm font-medium leading-[16px] text-sky-900/80 sm:text-md">
-          <CategoryIcon
+          {/* <CategoryIcon
             category={caseStudy.tags[0]}
             className="h-4 w-4 text-sky-900/75"
-          />
-          {caseStudy.tags[0]}
+          /> */}
+          <span>{caseStudy.category}</span>
         </div>
         <h3 className="mt-5 font-display text-2xl font-medium text-slate-900 sm:mt-6 sm:text-3xl">
-          {caseStudy.title}
+          {caseStudy.summary_title}
         </h3>
         <p className="mt-3 text-md leading-8 text-slate-700 sm:mt-4 sm:text-base sm:leading-8">
-          {caseStudy.description}
+          {caseStudy.summary_excerpt}
         </p>
         <Link
-          href={caseStudy.url}
+          href={`/work/${caseStudy.slug}`}
           className="group mt-14 flex items-center gap-2 text-sm font-medium text-sky-600 duration-200 ease-in-out hover:text-sky-700 sm:mt-16 sm:text-md"
         >
           View Case Study
@@ -70,25 +70,26 @@ function CaseStudy({ caseStudy }) {
         </Link>
       </div>
       <Link
-        href={caseStudy.url}
-        className="group aspect-h-9 aspect-w-16 relative order-1 h-full w-full overflow-hidden rounded-2xl ring-1 ring-slate-100/75 lg:order-2 lg:col-span-6 lg:rounded-l-none lg:rounded-r-none xl:col-span-7 xl:rounded-tl-2xl"
-      >
-        <Image
-          src={caseStudy.thumbnail}
-          alt={caseStudy.title}
-          className="absolute inset-0 object-cover object-top transition duration-300 group-hover:scale-105"
-          fill
-          sizes="(min-width: 1280px) 43rem, (min-width: 1024px) calc(50vw - 3.5rem), (min-width: 640px) 32rem, calc(100vw - 4.5rem)"
-        />
-      </Link>
-    </div>
+       href={`/work/${caseStudy.slug}`}
+  className = "group aspect-h-9 aspect-w-16 relative order-1 h-full w-full overflow-hidden rounded-2xl ring-1 ring-slate-100/75 lg:order-2 lg:col-span-6 lg:rounded-l-none lg:rounded-r-none xl:col-span-7 xl:rounded-tl-2xl"
+    >
+    <Image
+      src={caseStudy.cover_photo.data.attributes.url}
+      alt={caseStudy.title}
+      className="absolute inset-0 object-cover object-top transition duration-300 group-hover:scale-105"
+      fill
+      sizes="(min-width: 1280px) 43rem, (min-width: 1024px) calc(50vw - 3.5rem), (min-width: 640px) 32rem, calc(100vw - 4.5rem)"
+    />
+      </Link >
+    </div >
+    </>
   )
 }
 
-export function FeaturedWork() {
-  const caseStudies = allCaseStudies
-    .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
-    .slice(0, 4)
+export function FeaturedWork({ casestudies }) {
+  // const caseStudies = allCaseStudies
+  //   .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
+  //   .slice(0, 4)
 
   return (
     <section className="overflow-x-clip bg-white pb-16 pt-8 sm:pb-24 sm:pt-12 md:pt-16">
@@ -104,8 +105,8 @@ export function FeaturedWork() {
           </p>
         </div>
         <div className="relative mx-auto mt-16 max-w-xl space-y-16 lg:mx-0 lg:max-w-none">
-          {caseStudies.map((caseStudy) => (
-            <CaseStudy key={caseStudy.slug} caseStudy={caseStudy} />
+          {casestudies.map((caseStudy) => (
+            <CaseStudy key={caseStudy.attributes.slug} caseStudy={caseStudy.attributes} />
           ))}
         </div>
       </Container>

@@ -7,6 +7,7 @@ import { FeaturedPosts } from '@/components/blog/FeaturedPosts'
 import { Footer } from '@/components/Footer'
 import { fetchHome } from '../lib/strapi'
 import { Suspense } from 'react'
+import { getWorkSlug } from '@/lib/strapi'
 
 export const metadata = {
   description:
@@ -14,14 +15,16 @@ export const metadata = {
 }
 
 export default async function HomePage() {
-  const data = await fetchHome()
+  const data = await fetchHome();
+  const something = await getWorkSlug();
+  console.log('this is my console log',something.caseStudies.data);
   return (
 
     <Suspense>
       <Hero data={data} />
       <Experience data={data.cvDownload.data.attributes.cvfile.data.attributes.url} />
       <StackIconsRow />
-      <FeaturedWork />
+      <FeaturedWork casestudies={data.caseStudies.data} />
       <Testimonials />
       <FeaturedPosts />
       <Footer />

@@ -10,7 +10,7 @@ export function Experience({data}) {
         <div className="grid items-center max-w-xl gap-6 mx-auto lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:gap-16">
           <div>
             <h2 className="text-4xl font-semibold font-display text-slate-900 sm:text-5xl">
-              I'm your{' '}
+            Your{' '}
               <span className="relative whitespace-nowrap">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -25,14 +25,12 @@ export function Experience({data}) {
 
                 <span className="relative text-sky-700">all-in-one</span>
               </span>{' '}
-              project solution
+              project partner
             </h2>
           </div>
           <div>
             <p className="text-lg leading-8 text-slate-700">
-              Experience the advantage of an all-inclusive project solution,
-              where excellence, speed, and responsiveness converge to ensure the
-              highest quality outcome.
+            When we work together, you'll get everything you need—quality, quickness, and great communication. I make sure all the pieces come together seamlessly to create awesome results.
             </p>
           </div>
         </div>
@@ -85,8 +83,7 @@ export function Experience({data}) {
                         Excellence
                       </h3>
                       <p className="mt-2.5 text-base text-slate-700">
-                        I take pride in doing things well. All client work is
-                        done with the best quality possible.
+                        I've worked closely with a variety of clients and designers to create high-quality projects.
                       </p>
                     </div>
                   </div>
@@ -157,7 +154,7 @@ export function Experience({data}) {
                       </h3>
                       <p className="mt-2.5 text-base text-slate-700">
                         I like to work hard and fast. I know how important
-                        deadlines are to my clients.
+                        deadlines are to my clients and I'll always be transparent on what can be done.
                       </p>
                     </div>
                   </div>

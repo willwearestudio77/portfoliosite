@@ -4510,10 +4510,6 @@ select {
     right: 5rem;
   }
 
-  .lg\:top-6 {
-    top: 1.5rem;
-  }
-
   .lg\:top-\[unset\] {
     top: unset;
   }

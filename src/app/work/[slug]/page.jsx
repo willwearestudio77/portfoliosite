@@ -6,43 +6,48 @@ import { CaseStudyNavigation } from '@/components/work/CaseStudyNavigation'
 import { allCaseStudies } from 'contentlayer/generated'
 import { MdxContent } from '@/components/mdx/MdxContent'
 import { Footer } from '@/components/Footer'
+import { getWork } from '@/lib/strapi'
 
-export const generateStaticParams = async () =>
-  allCaseStudies.map((caseStudy) => ({ slug: caseStudy.slug }))
+// export const generateStaticParams = async () =>
+//   allCaseStudies.map((caseStudy) => ({ slug: caseStudy.slug }))
 
-export async function generateMetadata({ params }) {
-  const caseStudy = allCaseStudies.find(
-    (caseStudy) => caseStudy.slug === params.slug
-  )
-  return { title: caseStudy.title, description: caseStudy.description }
-}
+// export async function generateMetadata({ params }) {
+//   const caseStudy = allCaseStudies.find(
+//     (caseStudy) => caseStudy.slug === params.slug
+//   )
+//   return { title: caseStudy.title, description: caseStudy.description }
+// }
 
-export default function CaseStudyPage({ params }) {
-  const caseStudy = allCaseStudies.find(
-    (caseStudy) => caseStudy.slug === params.slug
-  )
 
+export default async function CaseStudyPage({ params }) {
+  const caseStudy = await getWork(params.slug);
+  
+  const caseStudyData = await caseStudy.caseStudies.data[0].attributes;
+  
+  const categories = caseStudyData.category.split(',').map(item => item.trim());
+  console.log(caseStudyData)
   return (
     <>
       <CaseStudyHero
-        title={caseStudy.title}
-        subtitle={caseStudy.subtitle}
-        tags={caseStudy.tags}
-        coverImage={caseStudy.coverImage}
+        title={caseStudyData.hero_heading}
+        subtitle={caseStudy.Title}
+        tags={categories}
+        coverImage={caseStudyData.cover_photo.data.attributes.url}
       />
       <CaseStudyDetails
-        client={caseStudy.client}
-        description={caseStudy.description}
-        projectDuration={caseStudy.projectDuration}
-        projectURL={caseStudy.projectURL}
+        client={caseStudyData.client}
+        description={caseStudyData.hero_body}
+        projectDuration={caseStudyData.duration}
+        projectURL={caseStudyData.projectURL}
       >
-        <MdxContent code={caseStudy.body.code} />
+        <div>{caseStudyData.tags}</div>
+        {/* <MdxContent code={caseStudyData.tags} /> */}
       </CaseStudyDetails>
-      <CaseStudyGallery images={caseStudy.images} />
-      <CaseStudyTestimonial
-        clientName={caseStudy.client.name}
-        testimonial={caseStudy.testimonial}
-      />
+      {/* <CaseStudyGallery images={caseStudy.images} /> */}
+      {/* <CaseStudyTestimonial
+        clientName={caseStudyData.name}
+        testimonial={caseStudyData.review}
+      /> */}
       <CaseStudyNavigation caseStudySlug={caseStudy.slug} />
       <Footer newsletter={false} />
     </>
